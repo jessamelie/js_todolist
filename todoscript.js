@@ -8,7 +8,7 @@ taskInput = document.getElementById("input").value; //garde en mémoire le texte
 document.getElementById("tasklist").innerHTML +=  
 `<div class="removestep">
 <p class="newinput"> ${taskInput}</p> 
-<input type="checkbox" onClick="checkTask()" id="checkbox">
+<input type="checkbox" onClick="checkTask(event)" class="checkbox">
 <input type="button" class="remove" onClick="removeTask(event)" value="Supprimer">
 <input type="button" class="edit" onClick="editInput(event)" value="Editer"></div>`
 document.getElementById("input").value = "";   //suppression du texte input après ajout  
@@ -21,11 +21,6 @@ const editInput = (event) => {
     let askNewInput = prompt("Editer votre tâche ci-dessous");
     const indexEdit = Array.from(document.querySelectorAll(".edit")).indexOf(buttonedit);
     document.querySelectorAll(".newinput")[indexEdit].innerText = askNewInput
-
-    // if (askNewInput!=""){
-    //     document.getElementById("newinput").innerText = askNewInput
-    // }
-    
     }
 
 //insertion tâche en appuyant sur Entrée
@@ -42,14 +37,16 @@ const index = Array.from(document.querySelectorAll(".remove")).indexOf(buttonrem
 document.querySelectorAll(".removestep")[index].remove()
 }
 
-//afficher une tache finie
-const checkTask = () => {
-    if (document.getElementById("checkbox").checked == true)
+//rayez une tâche
+const checkTask = (event) => {
+    const task_target = event.target
+    const index = Array.from(document.querySelectorAll(".checkbox")).indexOf(task_target)
+    if (document.querySelectorAll(".checkbox")[index].checked == true)
     {
-        document.getElementById("newinput").innerHTML = `<strike>${text_task}</strike>`
+        document.querySelectorAll(".newinput")[index].innerHTML = `<strike>${document.querySelectorAll(".newinput")[index].innerText}</strike>`
     }
-    else if (document.getElementById("checkbox").checked == false)
+    else if (document.querySelectorAll(".checkbox")[index].checked == false)
     {
-        document.getElementById("newinput").innerText = text_task
+        document.querySelectorAll(".newinput")[index].innerText = document.querySelectorAll(".newinput")[index].innerText
     }
 }
