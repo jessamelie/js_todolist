@@ -28,6 +28,12 @@ const editInput = (event) => {
     
     }
 
+//insertion tâche en appuyant sur Entrée
+document.getElementById("input").addEventListener("keypress",(event) => { 
+    if (event.key === "Enter"){
+        getInput()
+    }
+})
 
 //supprimer une tâche
 const removeTask = (event) => {
