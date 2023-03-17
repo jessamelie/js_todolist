@@ -1,14 +1,18 @@
-body {background-color: rgb(171, 236, 236);}
+@import url('https://fonts.googleapis.com/css2?family=Gaegu&family=Lekton&family=Permanent+Marker&display=swap');
+
+body {
+background-color: rgb(255, 255, 255);
+background-image: radial-gradient(circle, rgba(0,50,255,0.2) 1px, rgba(black, 0) 2px);
+}
 
 h1 {
 text-align: center;
 font-size: 50px;
-background-color: white;
-font-family :fantasy; 
+font-family: Permanent Marker;
 border-style:solid;
 border-radius: 16px;
-margin-left: 500px;
-margin-right: 500px;
+margin-left: 200px;
+margin-right: 200px;
 }
 
 #champstaches {
